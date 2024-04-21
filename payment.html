@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAN - Payment </title>
+    <style>
+        body {
+        background-size: cover;
+        background-color: #bbbaba;
+        background: url(house_5.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        color: aliceblue;
+        }
+        h1{
+            font-weight: bolder;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            color: green;
+        }
+        .container {
+            display: flex;
+        }
+        #des{
+            flex: 1;
+            padding: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 5px;
+        }
+        #preview{
+            width: 300px;
+            height: 500px;
+            border-radius: 5px;
+            margin: 5px;
+            flex: 2;
+        }
+        #inpP{
+            width: 85%;
+            height: 40px;
+            border: solid 2px;
+            border-radius: 5px;
+        }
+        #inpAc{
+            width: 85%;
+            height: 40px;
+            border: solid 2px;
+            border-radius: 5px;
+        }
+        .button{
+            width: 110px;
+            height: 50px;
+            margin: 10px;
+            border: solid 1px;
+            border-radius: 5px;
+            background-color: dimgrey;
+            font-weight: bolder;
+            color: rgb(0, 255, 255);
+        }
+        .button:hover{
+            background-color: green;
+            color: white;
+        }
+        footer{
+            background-color: rgb(155, 151, 151);
+            margin-bottom: 0px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>PAYMENT via Mpesa</h1>
+    
+    <div class="container">
+        <div id="des">
+            <p>Thank you for choosing to make a payment on our governmental house listing website. Your contribution supports our mission to provide affordable housing options for citizens across our region. By making a payment, you're not only securing your desired property but also contributing to the development and maintenance of our housing infrastructure.</p>
+            <p>Rest assured that your payment will be securely processed through our trusted payment gateway, ensuring the confidentiality and safety of your transaction information.</p>        
+            <br>
+            <p>Once again, thank you for your payment and for being a part of our efforts to enhance housing accessibility and affordability for all citizens. If you have any questions or require assistance with your payment, please don't hesitate to contact our customer support team. We're here to help you every step of the way.</p>
+        </div>
+        <div id="preview"></div>
+        <div id="des">
+            <div><img src="mpesa.png" alt="mpesa-logo"></div>
+            <h4>Pay Via Government Paybill:</h4>
+            <p style="font-weight: bolder; font-size: larger; color: red;">222000</p>
+            <br>
+            <form action="">
+                Paybill Number:
+                <input id="inpP" type="text" placeholder="222000"><br>
+                <br>
+                Account Number:
+                <input id="inpAc" type="text" placeholder="phone number"><br>
+                <p style="font-weight: bolder; font-size: larger; color: rgb(0, 254, 114);">Amount: Ksh. 1200</p>
+                <br>
+                <br>
+
+                <input onclick="goToPage()" class="button" type="button" value="Back">
+                <input onclick="showMessage()" class="button" type="submit" value="Pay">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; <b>2024 @gokrealestates. All rights reserved.</b></p>
+    </footer>
+    
+
+    <script>
+        // Wait for the DOM content to be fully loaded
+        document.addEventListener("DOMContentLoaded", function () {
+            // Retrieve the query parameter for the image URL
+            const imageUrl = getParameterByName('image');
+            
+            const divElement = document.getElementById('preview');
+            divElement.style.backgroundImage = `url('${imageUrl}')`;
+            divElement.style.backgroundSize = 'cover';
+            divElement.style.backgroundRepeat = 'no-repeat';
+            divElement.style.backgroundPosition = 'center';
+        });
+
+        // Function to retrieve query parameters by name
+        function getParameterByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function goToPage(){
+            window.location.href = 'index.html';
+        }
+
+        function showMessage(){
+            var paybill = document.getElementById('inpP').value;
+            var accountNo = document.getElementById('inpAc').value;
+
+            if( paybill != '' && accountNo != ''){
+                alert('User of the number will be prompted to enter Mpesa Pin to complete transaction!');
+                alert('Payment Successfull!');
+            }
+            else{
+                alert('Please fill in both textboxes');
+            }
+        }
+
+    </script>
+</body>
+</html>
